@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import React from 'react'
 
 function ProtectedRoute() {
-  let cookie = Cookies.get('jwt_token')
+  let cookie = true
   return(
   cookie != true ? <Navigate to='/login' /> : <Outlet />
   )

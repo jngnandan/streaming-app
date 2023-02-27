@@ -2,7 +2,8 @@
 import React from 'react'
 import './index.css'
 
-import { Redirect, Navigate, useNavigate, useHistory } from 'react-router-dom'
+
+import { useNavigate,} from 'react-router-dom'
 import { useState } from 'react'
 
 import Cookies from 'js-cookie'
@@ -14,40 +15,79 @@ export default function LoginPage() {
 
     let navigate = useNavigate()
 
+
     const onSubmitSuccess = jwtToken => {
-      const {history} = this.props
-  
+
       Cookies.set('jwt_token', jwtToken, {
         expires: 30,
         path: '/',
       })
-      history.replace('/profilepage')
+
+      navigate('/')
+      
       const {username, password} = this.state
       localStorage.setItem('username', username)
       localStorage.setItem('password', password)
     }
-  
-    const onSubmitFailure = errorMsg => {
-      this.setState({showError: true, errorMsg})
-    }
-  
-    const onSubmitForm = async event => {
-      event.preventDefault()
+
+    const onSubmitForm = async e => {
+      e.preventDefault()
       const userDetails = {username, password}
       const url = 'https://apis.ccbp.in/login'
       const options = {
         method: 'POST',
-        body: JSON.stringify(userDetails),
+        body: JSON.stringify(userDetails)
       }
       const response = await fetch(url, options)
+
       const data = await response.json()
-      if (response.ok === true) {
-        this.onSubmitSuccess(data.jwt_token)
-        console.log(data.jwt_token)
-      } else {
-        this.onSubmitFailure(data.error_msg)
+
+      
+      if (response.ok === true){
+          // console.log(data.jwt_token)
+          onSubmitSuccess(data.jwt_token)
       }
     }
+
+    
+
+
+  
+  
+    // const onSubmitForm = async event => {
+    //   event.preventDefault()
+    //   const userDetails = {username, password}
+    //   const url = 'https://apis.ccbp.in/login'
+    //   const options = {
+    //     method: 'POST',
+    //     body: JSON.stringify(userDetails),
+    //   }
+    //   const response = await fetch(url, options)
+    //   const data = await response.json()
+    //   if (response.ok === true) {
+    //     this.onSubmitSuccess(data.jwt_token)
+    //     console.log(data.jwt_token)
+    //   } else {
+    //     this.onSubmitFailure(data.error_msg)
+    //   }
+    // }
+
+      // const onSubmitSuccess = jwtToken => {
+    //   const {history} = this.props
+  
+    //   Cookies.set('jwt_token', jwtToken, {
+    //     expires: 30,
+    //     path: '/',
+    //   })
+    //   history.replace('/profilepage')
+    //   const {username, password} = this.state
+    //   localStorage.setItem('username', username)
+    //   localStorage.setItem('password', password)
+    // }
+  
+    // const onSubmitFailure = errorMsg => {
+    //   this.setState({showError: true, errorMsg})
+    // }
 
 
     // const jwtToken = Cookies.get('jwt_token')
