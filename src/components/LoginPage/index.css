@@ -1,0 +1,55 @@
+
+.heading{
+    font-size: 30px;
+    color: white;
+}
+
+.boxing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+    width: 400px;
+    background-color: black;
+    border-radius: 6px;
+    opacity: 0.8;
+}
+
+.text {
+    color: white;
+    font-size: 13px;
+}
+.input {
+    padding-block: 8px;
+    width: 200px;
+    color: black;
+    background-color: black;
+    border-width: 3px;
+    border-radius: 4px;
+}
+
+
+
+.buttonStyle{
+    width: 200px;
+    height: 30px;
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    border-width: 0px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.boxscreen{
+    background-image: url('/public/assets/images/login-screen.png');
+    background-size: cover;
+    background-repeat: 'none';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+
+}
