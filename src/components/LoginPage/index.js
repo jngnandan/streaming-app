@@ -25,7 +25,7 @@ export default function LoginPage() {
 
       navigate('/')
       
-      const {username, password} = this.state
+      // const {username, password} = this.state
       localStorage.setItem('username', username)
       localStorage.setItem('password', password)
     }

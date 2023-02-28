@@ -1,12 +1,15 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 
 import React from 'react'
 
-function ProtectedRoute() {
-  let cookie = true
+function ProtectedRoute(props) {
+  // const navigate = useNavigate()
+  // console.log(props)
+  let cookie = Cookies.get('jwt_token')
+  console.log(cookie)
   return(
-  cookie != true ? <Navigate to='/login' /> : <Outlet />
+  cookie ? <Outlet /> : <Navigate to='/login' />
   )
 }
 
