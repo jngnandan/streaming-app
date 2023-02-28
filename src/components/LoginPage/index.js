@@ -1,6 +1,7 @@
 
 import React from 'react'
 import './index.css'
+import { Link } from "react-router-dom";
 
 
 import { useNavigate,} from 'react-router-dom'
@@ -20,10 +21,10 @@ export default function LoginPage() {
 
       Cookies.set('jwt_token', jwtToken, {
         expires: 30,
-        path: '/',
+        path: '/profilepage',
       })
 
-      navigate('/')
+      navigate('/profilepage')
       
       // const {username, password} = this.state
       localStorage.setItem('username', username)
@@ -100,6 +101,9 @@ export default function LoginPage() {
   return (
     <div className='boxscreen'>
       <form onSubmit={onSubmitForm} className='boxing'>
+          <Link to='/'>
+            <img src='../assets/images/movies.png'/>
+            </Link>
       <h1 className='heading'>Login</h1>
         <label id='username'>
           <p className='text'>USERNAME</p>

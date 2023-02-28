@@ -6,6 +6,7 @@ import Home from './components/Home'
 import LoginPage from './components/LoginPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import NotFound from './components/NotFound'
+import ProfilePage from './components/ProfilePage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route exact path='/' element={<Home />}/>
         <Route exact path='*' element={<NotFound />}/>
+        <Route exact path='/profilepage' element={<ProfilePage />} />
 
       </Route>
 

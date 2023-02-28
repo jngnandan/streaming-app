@@ -11,6 +11,9 @@ export default function Home() {
       <p>Home</p>
 
       <button onClick={() => navigate('/login', {replace: true})}>Login</button>
+      <br/>
+      <button onClick={() => navigate('/profilepage', {replace: true})}>Profile Page</button>
+
     </div>
   )
 }
