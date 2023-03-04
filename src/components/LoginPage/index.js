@@ -18,11 +18,13 @@ export default function LoginPage() {
 
 
     const onSubmitSuccess = jwtToken => {
+          // console.log(jwtToken)
 
       Cookies.set('jwt_token', jwtToken, {
         expires: 30,
-        path: '/profilepage',
-      })
+        // path: '/profilepage',
+      })   
+
 
       navigate('/profilepage')
       
